@@ -87,3 +87,7 @@ typings/
 
 # Electron-Forge
 out/
+
+# Build artifacts
+index.js
+index.js.LICENSE.txt

@@ -1,8 +1,14 @@
 /* eslint @typescript-eslint/no-var-requires: "off"  */
-const rules = require("./webpack.rules");
+const allRules = require("./webpack.rules");
 const plugins = require("./webpack.renderer.plugins");
 const TsconfigPathsPlugin = require("tsconfig-paths-webpack-plugin");
 const path = require("path");
+
+// asset-relocator-loader uses __dirname at runtime — not available in renderer (nodeIntegration: false)
+const rules = allRules.filter(r => {
+  const loaders = [].concat(r.use || []);
+  return !loaders.some(l => (l.loader || l) === "@vercel/webpack-asset-relocator-loader");
+});
 
 rules.push({
   test: /\.css$/,
