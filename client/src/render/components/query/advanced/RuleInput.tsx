@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Select from "react-select";
-import DatePicker from "react-datepicker";
+import DatePickerBase from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import {
   dropdownMap,
@@ -10,7 +10,9 @@ import {
   Rule,
   DropdownOption,
 } from "../../../../models/rules";
-import React from "react";
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const DatePicker = DatePickerBase as any;
 
 interface PropTypes {
   rule: Rule;
@@ -75,7 +77,7 @@ const RuleInputDate = ({ rule, onChange }: PropTypes) => {
     <DatePicker
       className="input-height p-2 w-40 border-gray-300 border rounded focus:outline-blue-500"
       selected={new Date(parseInt(rule.value))}
-      onChange={(date) => setSelectedDate(date ?? new Date())}
+      onChange={(date: Date | null) => setSelectedDate(date ?? new Date())}
     />
   );
 };
