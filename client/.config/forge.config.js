@@ -11,6 +11,7 @@ module.exports = {
     asar: true,
     icon: path.join(packageAssetsPath, "bbd.ico"),
     executableName: "batch-beatmap-downloader",
+    extraResource: [path.join(packageAssetsPath, "bbd.png")],
   },
   publishers: [
     {
