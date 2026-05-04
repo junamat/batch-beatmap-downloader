@@ -1,0 +1,97 @@
+name: Build and Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build-linux:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install system deps
+        run: sudo apt-get install -y zip rpm fakeroot
+
+      - name: Install dependencies
+        working-directory: client
+        run: yarn install
+
+      - name: Make Linux
+        working-directory: client
+        run: yarn make:linux
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: linux-artifacts
+          path: client/out/make/**/*
+
+  build-windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        working-directory: client
+        run: yarn install
+
+      - name: Make Windows
+        working-directory: client
+        run: yarn make:win
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: windows-artifacts
+          path: client/out/make/**/*
+
+  build-mac:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        working-directory: client
+        run: yarn install
+
+      - name: Make macOS
+        working-directory: client
+        run: yarn make:mac
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mac-artifacts
+          path: client/out/make/**/*
+
+  release:
+    needs: [build-linux, build-windows, build-mac]
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          path: artifacts
+          merge-multiple: true
+
+      - name: Create release and upload assets
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release create ${{ github.ref_name }} \
+            --repo ${{ github.repository }} \
+            --title ${{ github.ref_name }} \
+            --draft \
+            $(find artifacts -type f | xargs)
