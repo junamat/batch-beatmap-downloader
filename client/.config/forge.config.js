@@ -10,6 +10,7 @@ module.exports = {
   packagerConfig: {
     asar: true,
     icon: path.join(packageAssetsPath, "bbd.ico"),
+    executableName: "batch-beatmap-downloader",
   },
   publishers: [
     {
@@ -29,6 +30,7 @@ module.exports = {
 
     {
       name: "@electron-forge/maker-squirrel",
+      platforms: ["win32"],
       config: {
         // https://js.electronforge.io/maker/squirrel/interfaces/makersquirrelconfig
         setupExe: "BBDWindowsSetup.exe",
@@ -39,9 +41,9 @@ module.exports = {
         authors: "nzbasic",
       },
     },
-    // You can only build the DMG target on macOS machines.
     {
       name: "@electron-forge/maker-dmg",
+      platforms: ["darwin"],
       config: {
         // https://js.electronforge.io/maker/dmg/interfaces/makerdmgconfig
         icon: path.join(packageAssetsPath, "bbd.png"),
@@ -49,20 +51,24 @@ module.exports = {
         name: "Batch Beatmap Downloader", // NEEDS TO BE SHORTER THAN 27 CHARACTERS
       },
     },
-
-    // Use maker-zip to build for mac, but without customizability
-    // {
-    //   name: "@electron-forge/maker-zip",
-    //   platforms: ["darwin"],
-    //   // No config choice
-    // },
-
     {
       name: "@electron-forge/maker-deb",
+      platforms: ["linux"],
       config: {
         // https://js.electronforge.io/maker/deb/interfaces/makerdebconfig
         icon: path.join(packageAssetsPath, "bbd.png"),
       },
+    },
+    {
+      name: "@electron-forge/maker-rpm",
+      platforms: ["linux"],
+      config: {
+        icon: path.join(packageAssetsPath, "bbd.png"),
+      },
+    },
+    {
+      name: "@electron-forge/maker-zip",
+      platforms: ["linux"],
     },
   ],
   plugins: [
