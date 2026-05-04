@@ -91,8 +91,12 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          files=()
+          while IFS= read -r -d '' f; do
+            files+=("$f")
+          done < <(find artifacts -type f -print0)
           gh release create ${{ github.ref_name }} \
             --repo ${{ github.repository }} \
-            --title ${{ github.ref_name }} \
+            --title "${{ github.ref_name }}" \
             --draft \
-            $(find artifacts -type f | xargs)
+            "${files[@]}"
