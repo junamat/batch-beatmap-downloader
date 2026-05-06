@@ -1,5 +1,5 @@
 <h1 align="center">
-  <a href="https://github.com/nzbasic/batch-beatmap-downloader">
+  <a href="https://github.com/junamat/batch-beatmap-downloader">
     <img src="https://user-images.githubusercontent.com/54062686/154786704-a8f12c81-1ec3-48e4-a1cb-9f74ed164a43.png" alt="Logo" width="256" height="256">
   </a>
 
@@ -8,19 +8,19 @@
 </h1>
 
 <div align="center">
-  <h3><a href="https://github.com/nzbasic/batch-beatmap-downloader/releases/latest">Download Latest Release</a><h3>
+  <h3><a href="https://github.com/junamat/batch-beatmap-downloader/releases/latest">Download Latest Release</a><h3>
 </div>
 
 <div align="center">
 <br />
  
   
-[![codefactor](https://img.shields.io/codefactor/grade/github/nzbasic/batch-beatmap-downloader?style=flat-square)](https://github.com/nzbasic/batch-beatmap-downloader)
-[![license](https://img.shields.io/github/license/nzbasic/batch-beatmap-downloader?style=flat-square)](LICENSE)
-[![stars](https://img.shields.io/github/stars/nzbasic/batch-beatmap-downloader?style=flat-square)](https://github.com/nzbasic/Collection-Helper)
-[![release](https://img.shields.io/github/v/release/nzbasic/batch-beatmap-downloader?style=flat-square)](https://github.com/nzbasic/Collection-Helper)
-[![downloads](https://img.shields.io/github/downloads/nzbasic/batch-beatmap-downloader/total?style=flat-square)](https://github.com/nzbasic/Collection-Helper)
-[![lastcommit](https://img.shields.io/github/last-commit/nzbasic/batch-beatmap-downloader?style=flat-square)](https://github.com/nzbasic/Collection-Helper)
+[![codefactor](https://img.shields.io/codefactor/grade/github/junamat/batch-beatmap-downloader?style=flat-square)](https://github.com/junamat/batch-beatmap-downloader)
+[![license](https://img.shields.io/github/license/junamat/batch-beatmap-downloader?style=flat-square)](LICENSE)
+[![stars](https://img.shields.io/github/stars/junamat/batch-beatmap-downloader?style=flat-square)](https://github.com/junamat/batch-beatmap-downloader)
+[![release](https://img.shields.io/github/v/release/junamat/batch-beatmap-downloader?style=flat-square)](https://github.com/junamat/batch-beatmap-downloader)
+[![downloads](https://img.shields.io/github/downloads/junamat/batch-beatmap-downloader/total?style=flat-square)](https://github.com/junamat/batch-beatmap-downloader)
+[![lastcommit](https://img.shields.io/github/last-commit/junamat/batch-beatmap-downloader?style=flat-square)](https://github.com/junamat/batch-beatmap-downloader)
   
 [![go](https://img.shields.io/badge/Go-00ADD8?style=for-the-badge&logo=go&logoColor=white)](https://github.com/golang/go)
 [![electron](https://img.shields.io/badge/Electron-2B2E3A?style=for-the-badge&logo=electron&logoColor=9FEAF9)](https://github.com/electron/electron)
@@ -28,9 +28,6 @@
 [![typescript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)](https://github.com/microsoft/TypeScript)
 [![sqlite](https://img.shields.io/badge/SQLite-07405E?style=for-the-badge&logo=sqlite&logoColor=white)](https://github.com/sqlite/sqlite)
 [![tailwind](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://github.com/tailwindlabs/tailwindcss)
-
-  
-[![coffee](https://img.shields.io/badge/Buy_Me_A_Coffee-FFDD00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black)](https://www.buymeacoffee.com/nzbasic)
   
 </div>
 
@@ -44,10 +41,9 @@
   - [Usage](#usage)
     - [Build instructions](#building-yourself-for-devs)
 - [Contributing](#contributing)
-- [Support](#support)
-- [Donate](#donate)
 - [License](#license)
 - [Acknowledgements](#acknowledgements)
+- [New Features](#new-features)
 
 </details>
 
@@ -94,16 +90,23 @@ You must have run your osu! client at least once.
 
 ### Usage
 
-<a href="https://github.com/nzbasic/batch-beatmap-downloader/releases/latest">Download the latest release here</a>
+<a href="https://github.com/junamat/batch-beatmap-downloader/releases/latest">Download the latest release here</a>
+
+#### Arch Linux
+```bash
+yay -Syu batch-beatmap-downloader-bin
+```
+Change `yay` for your preferred AUR helper
 
 #### Building yourself (for devs)
 
 Please follow these steps to build the project yourself:
 
 1. Pull the repo
-2. Run "yarn" to install dependencies
-3. Run "yarn make:win" (or "yarn start" to dev)
-4. Run the installer found in /releases/
+2. `cd` into `client/`
+3. Run "yarn" to install dependencies
+4. Run "yarn make:win" for windows (other options in client/package.json)
+5. Run the installer found in /releases/
 
 ## Contributing
 
@@ -115,27 +118,6 @@ Please try to create bug reports that are:
 - _Specific._ Include as much detail as possible: which version, what environment, etc.
 - _Unique._ Do not duplicate existing opened issues.
 - _Scoped to a Single Bug._ One bug per report.
-
-## Support
-
-Reach out to the maintainer at one of the following places:
-
-- Discord: basic#7373
-- Twitter: @nzbasic
-- osu!: YEP
-- Email: jamescoppard024@gmail.com
-
-## Donate
-
-If you would like to support me I would greatly appreciate it. 
-
-[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/nzbasic)
-
-Crypto
-- NANO: nano_3ymx5ymxgwrsfc53mem7bfmwjgzwxhtzp41wdkepnxmjdzzhhf3dgiiif8qc
-- ETH: 0x46cB2b27C5607282BAdAaf9973EFd728D202A1d3
-- BTC: bc1q0f0xtmmf7n05qgnmeun6ytc8z676j8tryszrr3
-- DOGE: DRRhYtaFFoyGUaU1h8MyE8LBbMETjDU5AR
 
 ## License
 
@@ -149,4 +131,10 @@ Special thanks to the following:
 
 - <https://github.com/Itsyuka/osu-buffer> - Great tool for reading and writing osu! binary types
 - <https://github.com/saucesteals/electron-typescript-react-tailwind-redux> - Great electron react tailwind typescript template
+- <https://github.com/nzbasic/batch-beatmap-downloader/releases/latest> - The original project, there's donation links in the original README, if you love this program go support him!
+
+## New Features
+- Precompiled binaries for MacOS, Windows, Linux (.deb, .rpm, .zip)
+- Various fixes so as to be compilable ootb
+- Fixed collection.db path for non-windows/wine OSs
 - <https://github.com/dec0dOS/amazing-github-template> - Great readme template
